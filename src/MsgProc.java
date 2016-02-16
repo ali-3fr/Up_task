@@ -31,8 +31,12 @@ public class MsgProc {
         Gson gson = new Gson();
         Type collectionType = new TypeToken<ArrayList<Message>>() {
         }.getType();
-        String str = sc.nextLine();
-        msgs = gson.fromJson(str, collectionType);
+        String str;
+        if(sc.hasNext()){
+            str = sc.nextLine();
+            msgs = gson.fromJson(str, collectionType);
+        }
+        else System.out.print("File is empty!\n");
         fr.close();
 
     }
@@ -91,8 +95,8 @@ public class MsgProc {
 
     private void printMsg(Message m) {
 
-        System.out.print("Message id:" + m.outId() + "\n");
-        System.out.print(m.outTimestamp() + " " + m.outAuthor() + ":" + m.outMessage());
+        Date date = new Date(m.outTimestamp());
+        System.out.print(date.toString() + " : " + m.outAuthor() + ": " + m.outMessage()+ "\n");
 
     }
 
@@ -147,7 +151,7 @@ public class MsgProc {
 
         Scanner sc = new Scanner(System.in);
         DateFormat format = new SimpleDateFormat("dd.MM.yyyy 'at' HH:mm");
-        System.out.print("Enter date in \"dd.MM.yyyy 'at' HH:mm\" format");
+        System.out.print("Enter date in \"dd.MM.yyyy 'at' HH:mm\" format:\n");
         Date date1 = format.parse(sc.nextLine());
         Date date2 = format.parse(sc.nextLine());
         Date defDate;

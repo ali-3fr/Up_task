@@ -19,7 +19,7 @@ public class Task1 {
                     "2 - if you want to see message history\n" +
                     "3 - if you want to delete message\n" +
                     "4 - if you want to find message\n" +
-                    "5 - if you want to quit app");
+                    "5 - if you want to quit app\n");
             switch(sc.nextInt()){
                 case 1:
                     mp.addMsg();
