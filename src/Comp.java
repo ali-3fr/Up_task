@@ -7,9 +7,5 @@ public class Comp implements Comparator<Message> {
 
         return Long.valueOf(a.outTimestamp()).compareTo(Long.valueOf(b.outTimestamp()));
 
-
     }
-
-
-
 }

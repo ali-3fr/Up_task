@@ -5,10 +5,7 @@ import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -18,7 +15,7 @@ import java.util.regex.*;
 
 public class MsgProc {
 
-    private ArrayList<Message> msgs;
+    private List<Message> msgs;
 
     public MsgProc() {
         msgs = new ArrayList<>();
@@ -60,7 +57,6 @@ public class MsgProc {
         String b;
         String c;
 
-
         System.out.print("Enter your nickname:\n");
         c = sc.nextLine();
         System.out.print("Enter your message:\n");
@@ -73,6 +69,7 @@ public class MsgProc {
     private void sortMsgsByDate() {
 
         Collections.sort(msgs, new Comp());
+
     }
 
     public void delMsg() {
@@ -103,6 +100,7 @@ public class MsgProc {
     public void printSortedMsgs() {
 
         sortMsgsByDate();
+
         for (Message temp : msgs) {
             printMsg(temp);
         }
@@ -114,6 +112,7 @@ public class MsgProc {
         Scanner sc = new Scanner(System.in);
         String auth;
         System.out.print("Enter author name:\n");
+
         auth = sc.nextLine();
 
         for (Message temp : msgs) {
@@ -127,8 +126,10 @@ public class MsgProc {
 
         Scanner sc = new Scanner(System.in);
         String word;
+
         System.out.print("Enter word:\n");
         word = sc.nextLine();
+
         for (Message temp : msgs) {
             if (temp.outMessage().contains(word)) {
                 printMsg(temp);
@@ -141,6 +142,7 @@ public class MsgProc {
         System.out.print("Enter regular expression:\n");
         Scanner sc = new Scanner(System.in);
         Pattern p = Pattern.compile(sc.nextLine());
+        
         for (Message temp : msgs) {
             Matcher m = p.matcher(temp.outMessage());
             if (m.matches()) printMsg(temp);
