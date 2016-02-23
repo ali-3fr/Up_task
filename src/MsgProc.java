@@ -74,20 +74,22 @@ public class MsgProc {
 
     public void delMsg() {
 
-        int delNumber = 0;
+
         Scanner sc = new Scanner(System.in);
         String delId;
+
+        System.out.print("Enter message id:\n");
 
         delId = sc.nextLine();
 
         for (int i = 0; i < msgs.size(); i++) {
             if (msgs.get(i).outId().equals(delId)) {
-                delNumber = i;
+                msgs.remove(i);
                 break;
             }
         }
 
-        msgs.remove(delNumber);
+
     }
 
     private void printMsg(Message m) {
@@ -111,14 +113,21 @@ public class MsgProc {
 
         Scanner sc = new Scanner(System.in);
         String auth;
+        boolean check = false;
         System.out.print("Enter author name:\n");
 
         auth = sc.nextLine();
 
+
         for (Message temp : msgs) {
             if (temp.outAuthor().equals(auth)) {
                 printMsg(temp);
+                check = true;
             }
+        }
+
+        if(!check){
+            System.out.print("No such message\n");
         }
     }
 
@@ -126,6 +135,7 @@ public class MsgProc {
 
         Scanner sc = new Scanner(System.in);
         String word;
+        boolean check = false;
 
         System.out.print("Enter word:\n");
         word = sc.nextLine();
@@ -133,7 +143,11 @@ public class MsgProc {
         for (Message temp : msgs) {
             if (temp.outMessage().contains(word)) {
                 printMsg(temp);
+                check = true;
             }
+        }
+        if(!check){
+            System.out.print("No such message\n");
         }
     }
 
@@ -142,10 +156,17 @@ public class MsgProc {
         System.out.print("Enter regular expression:\n");
         Scanner sc = new Scanner(System.in);
         Pattern p = Pattern.compile(sc.nextLine());
-        
+        boolean check = false;
+
         for (Message temp : msgs) {
             Matcher m = p.matcher(temp.outMessage());
-            if (m.matches()) printMsg(temp);
+            if (m.matches()) {
+                printMsg(temp);
+                check = true;
+            }
+        }
+        if(!check){
+            System.out.print("No such message\n");
         }
     }
 
@@ -157,12 +178,17 @@ public class MsgProc {
         Date date1 = format.parse(sc.nextLine());
         Date date2 = format.parse(sc.nextLine());
         Date defDate;
+        boolean check = false;
 
         for(Message temp : msgs){
             defDate = new Date(temp.outTimestamp());
             if(defDate.before(date1) && defDate.after(date2) ){
                 printMsg(temp);
+                check = true;
             }
+        }
+        if(!check){
+            System.out.print("No such message\n");
         }
     }
 }
