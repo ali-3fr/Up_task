@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ChatApp</title>
+    <link href="style.css" rel="stylesheet">    
+</head>
+<body id="chat">
+<header>
+    <div id="logo">Amazing chat</div>
+</header>
+<div class="container">
+    <div class="chatroom">
+        <div class="participants_container">
+            <div class="name_container">
+                <label>Nickname:</label>
+
+                <p> nickname </p>
+                <input type="text" maxlength="250" placeholder="New Nickname" autocomplete="off">
+                <button class="btn-edit" type="button">edit</button>
+            </div>
+        </div>
+        <div class="chat_container">
+            <div class="user_form_container">
+
+                <div class="message_box your_msg">
+                    Hey what is up ?
+                    <button type="button" class="b pull-right">edit</button>
+                    <button type="button" class="b pull-right">delete</button>
+                </div>
+
+                <div class="message_box opp_msg">
+                    I'm fine and you?
+                </div>
+
+                <div class="message_box your_msg">
+                    Great! How about going out tonight?
+                    <span class="sp">edited</span>
+                    <button type="button" class="b pull-right">edit</button>
+                    <button type="button" class="b pull-right">delete</button>
+                </div>
+
+                <div class="message_box opp_msg">
+                    \message deleted\
+                </div>
+
+            </div>
+            <div class="input_container">
+                <input class="outgoing_message" autofocus type="text" maxlength="250" placeholder="Your message"
+                       autocomplete="on">
+                <button class="btn" type="button">Send</button>
+            </div>
+        </div>
+        <div class="server_status">
+            server is online
+        </div>
+    </div>
+</div>
+</body>
+</html>
