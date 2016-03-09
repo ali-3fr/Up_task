@@ -80,7 +80,9 @@ function createMessage(author, content){
 function onDeleteMessage(messageID){
     var check = confirm("You really want to delete this message?");
     if(check){
-        document.getElementById(messageID).innerHTML = "/message deleted/";
+        document.getElementById(messageID).innerHTML = "/message deleted/";        
+        document.getElementById('d' + messageID).removeChild(document.getElementById('btn-edit' + messageID));
+        document.getElementById('d' + messageID).removeChild(document.getElementById('btn-delete' + messageID));
         if(document.getElementById('sp' + messageID).innerHTML == 'edited'){
             //var divItem = document.getElementById('d' + msgId);
             document.getElementById('d' + messageID).removeChild(document.getElementById('sp' + messageID));
