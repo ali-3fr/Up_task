@@ -64,7 +64,8 @@ function createMessage(author, content){
     divItem.classList.add('message_box');
     divItem.classList.add('your_msg');
     divItem.id = 'd' + msgId;
-    var msgContent = document.createElement('u');
+    var msgContent = document.createElement('span');
+    msgContent.classList.add('message-style');
     msgContent.id = msgId;
     msgContent.innerHTML = author + ': ' + content;
     divItem.appendChild(msgContent);

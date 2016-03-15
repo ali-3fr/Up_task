@@ -63,6 +63,9 @@ header {
     border: 1px solid black;
 }
 
+.message_style{
+}
+
 .participants_container {
 
     display: inline-block;
@@ -99,6 +102,7 @@ header {
 }
 
 .btn {
+    padding: 0px 0px;
     border: solid black;
     float: right;
     width: 30%;
