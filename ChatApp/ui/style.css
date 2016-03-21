@@ -63,7 +63,7 @@ header {
     border: 1px solid black;
 }
 
-.message_style{
+.message_style {
 }
 
 .participants_container {
@@ -76,12 +76,12 @@ header {
     margin-top: 2px;
 }
 
-.sp{
+.sp {
     font-size: 50%;
     float: left;
 }
 
-.pull-right{
+.pull-right {
     float: right;
 }
 
@@ -108,9 +108,11 @@ header {
     width: 30%;
     height: 28px;
 }
+
 .btn:active {
     background-color: red;
 }
+
 .clear {
     clear: both;
 }
