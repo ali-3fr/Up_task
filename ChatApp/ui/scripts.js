@@ -80,11 +80,12 @@ function renderMsg(element) {
     divItem.appendChild(buttonDelete);
     divItem.appendChild(buttonEdit);
     if (element.edited) {
-        var editCheck = document.createElement('span');
+                var editCheck = document.createElement('span');
         editCheck.classList.add('sp');
         editCheck.id = 'sp' + element.ide;
         editCheck.innerHTML = 'edited';
         divItem.appendChild(editCheck);
+    
     }
     if (element.deleted) {
         msgContent.innerHTML = "/message deleted/";
@@ -157,7 +158,6 @@ function onEditMessage(messageID) {
         var newMsg = prompt("Enter new message", '');
 
         var author = document.getElementById('nick').innerHTML;
-        document.getElementById(messageID).innerHTML = author + ": " + newMsg;
         var editCheck = document.createElement('span');
         editCheck.classList.add('sp');
         editCheck.id = 'sp' + messageID;
@@ -165,8 +165,15 @@ function onEditMessage(messageID) {
         document.getElementById('d' + messageID).appendChild(editCheck);
         var index = findByElement(document.getElementById(messageID), msgList);
         var msg = msgList[index];
+        if(msg.edited == false){
         msg.edited = !msg.edited;
-        msg.message = newMsg;
+    }
+    else{
+        document.getElementById('d' + messageID).removeChild(editCheck);
+
+    }
+        msg.message = newMsg;        
+        document.getElementById(messageID).innerHTML = msg.author + ": " + newMsg;
 
     }
     saveMsgs(msgList);

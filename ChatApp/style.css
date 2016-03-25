@@ -108,3 +108,22 @@ header {
 .clear {
     clear: both;
 }
+
+/*@media screen and (max-width: 900px){*/
+    /*.chatroom{*/
+        /*width: 600px;*/
+        /*background-color: red;*/
+    /*}*/
+
+    /*.participants_container {*/
+        /*display: inline-block;*/
+        /*width: 70%;*/
+        /*float: left;*/
+        /*vertical-align: top;*/
+        /*background-color: #fff;*/
+        /*padding: 24px;*/
+        /*margin: auto;*/
+        /*margin-top: 2px;*/
+        /*position:*/
+    /*}*/
+/*}*/
