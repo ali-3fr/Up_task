@@ -3,32 +3,32 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 
-public class Task1 {
+public class ChatApp {
 
     public static void main(String[] args) throws IOException, ParseException {
 
-        MsgProc mp = new MsgProc();
-        boolean check = false;
+        MessageHandling mh = new MessageHandling();
+        boolean exitCheck = false;
         Scanner sc = new Scanner(System.in);
         System.out.print("Welcome to awesome chat app\n");
 
-        while(!check){
-            mp.getFileData("data.json");
+        while (!exitCheck) {
+            mh.getFileData("data.json");
             System.out.print("Press:\n" +
                     "1 - if you want to add message\n" +
                     "2 - if you want to see message history\n" +
                     "3 - if you want to delete message\n" +
                     "4 - if you want to find message\n" +
                     "5 - if you want to quit app\n");
-            switch(sc.nextInt()){
+            switch (sc.nextInt()) {
                 case 1:
-                    mp.addMsg();
+                    mh.addMsg(sc);
                     break;
                 case 2:
-                    mp.printSortedMsgs();
+                    mh.printSortedMessages();
                     break;
                 case 3:
-                    mp.delMsg();
+                    mh.deleteMessage(sc);
                     break;
                 case 4:
                     System.out.print("Press\n" +
@@ -36,26 +36,27 @@ public class Task1 {
                             "2 - if you want to find message by word\n" +
                             "3 - if you want to find message by date\n" +
                             "4 - if you want to find message by regular expression\n");
-                    switch(sc.nextInt()){
+                    switch (sc.nextInt()) {
                         case 1:
-                            mp.findMsgByAuthor();
+                            mh.findByAuthor(sc);
                             break;
                         case 2:
-                            mp.findMsgByWord();
+                            mh.findByKeyWord(sc);
                             break;
                         case 3:
-                            mp.findMsgByDate();
+                            mh.findByDate(sc);
                             break;
                         case 4:
-                            mp.findMsgByRegular();
+                            mh.findByRegular(sc);
                             break;
                     }
                     break;
                 case 5:
-                    check = true;
+                    exitCheck = true;
                     break;
             }
-            mp.saveToFile("data.json");
+            mh.saveToFile("data.json");
         }
+        sc.close();
     }
 }
