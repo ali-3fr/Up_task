@@ -47,7 +47,7 @@ public class MessageHandling {
     }
 
 
-    public void addMsg(Scanner sc) {
+    public void addMessage(Scanner sc) {
 
         String nick;
         String message;
