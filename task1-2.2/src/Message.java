@@ -9,28 +9,28 @@ public class Message {
     private String author;
     private long timestamp;
 
-    public Message(String b, String c){
-        Timestamp d = new Timestamp(System.currentTimeMillis());
-        UUID idOne = UUID.randomUUID();
-        id = idOne.toString();
-        message = b;
-        author = c;
-        timestamp = d.getTime();
+    public Message(String msg, String nickname) {
+        Timestamp data = new Timestamp(System.currentTimeMillis());
+        UUID uuid = UUID.randomUUID();
+        id = uuid.toString();
+        message = msg;
+        author = nickname;
+        timestamp = data.getTime();
     }
 
-    public String outMessage(){
+    public String getMessage() {
         return message;
     }
 
-    public String outId(){
+    public String getId() {
         return id;
     }
 
-    public String outAuthor(){
+    public String getAuthor() {
         return author;
     }
 
-    public long outTimestamp(){
+    public long getTimestamp() {
         return timestamp;
     }
 

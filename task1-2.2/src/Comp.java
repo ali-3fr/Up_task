@@ -5,7 +5,7 @@ public class Comp implements Comparator<Message> {
     @Override
     public int compare(Message a, Message b) {
 
-        return Long.valueOf(a.outTimestamp()).compareTo(Long.valueOf(b.outTimestamp()));
+        return Long.valueOf(a.getTimestamp()).compareTo(Long.valueOf(b.getTimestamp()));
 
     }
 }
