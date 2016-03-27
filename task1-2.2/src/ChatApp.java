@@ -22,7 +22,7 @@ public class ChatApp {
                     "5 - if you want to quit app\n");
             switch (sc.nextInt()) {
                 case 1:
-                    mh.addMsg(sc);
+                    mh.addMessage(sc);
                     break;
                 case 2:
                     mh.printSortedMessages();
