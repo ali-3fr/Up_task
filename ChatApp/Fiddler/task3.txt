@@ -1,0 +1,14 @@
+POST http://localhost:999/chat HTTP/1.1
+User-Agent: Composer
+Host: localhost:999
+Content-Length: 31
+
+{"message": "hi i'm fiddler"}
+
+HTTP/1.1 200 OK
+Date: Sun, 03 Apr 2016 23:57:24 GMT
+Transfer-encoding: chunked
+Access-control-allow-origin: *
+
+0
+
